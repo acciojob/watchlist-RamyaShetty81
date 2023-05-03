@@ -7,10 +7,16 @@ import java.util.*;
 public class MovieRepository {
 
 
-    HashMap<String,Movie> movieDB = new HashMap<>();
-    HashMap<String,Director> directorDB = new HashMap<>();
-    HashMap<String,List<String>> movieDirectorPair = new HashMap<>();
+    HashMap<String,Movie> movieDB ;
+    HashMap<String,Director> directorDB;
+    HashMap<String,List<String>> movieDirectorPair ;
 
+
+    public MovieRepository() {
+        this.movieDB = new HashMap<>();
+        this.directorDB = new HashMap<>();
+        this.movieDirectorPair = new HashMap<>();
+    }
 
     public void addMovie(Movie movie)
     {
@@ -49,24 +55,14 @@ public class MovieRepository {
 
     public Movie getMovieByName(String movieName)
     {
-        for(Movie movie : movieDB.values())
-        {
-            if(movie.getName().equals(movieName)) {
-                return movie;
-            }
-        }
+        if(movieDB.containsKey(movieName)) return movieDB.get(movieName);
         return null;
     }
 
 
     public Director getDirectorByName(String directorName)
     {
-        for(Director director : directorDB.values())
-        {
-            if(director.getName().equals(directorName)) {
-                return director;
-            }
-        }
+       if(directorDB.containsKey(directorName)) return directorDB.get(directorName);
         return null;
     }
 
@@ -115,10 +111,10 @@ public class MovieRepository {
                 movieDB.remove(movie);
             }
 
-              //  movieDB.remove(movie);
+
 
         }
-        movieDirectorPair.clear();
+       // movieDirectorPair.clear();
     }
 
 
