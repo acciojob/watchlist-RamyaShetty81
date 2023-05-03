@@ -1,11 +1,7 @@
 package com.driver;
 
-
 import org.springframework.stereotype.Repository;
-
-
 import java.util.*;
-
 
 @Repository
 public class MovieRepository {
@@ -18,15 +14,20 @@ public class MovieRepository {
 
     public void addMovie(Movie movie)
     {
+
         String key = movie.getName();
-        movieDB.put(key,movie);
+        if(!movieDB.containsKey(key))
+            movieDB.put(key,movie);
+        return;
     }
 
 
     public void addDirector(Director director)
     {
         String key = director.getName();
-        directorDB.put(key,director);
+        if(!directorDB.containsKey(key))
+          directorDB.put(key,director);
+        return;
     }
 
 
