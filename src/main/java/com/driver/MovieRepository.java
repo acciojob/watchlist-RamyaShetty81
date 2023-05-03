@@ -114,7 +114,7 @@ public class MovieRepository {
 
 
         }
-       // movieDirectorPair.clear();
+       movieDirectorPair.clear();
     }
 
 
